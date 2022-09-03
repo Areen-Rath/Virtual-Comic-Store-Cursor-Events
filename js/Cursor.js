@@ -47,12 +47,12 @@ AFRAME.registerComponent("cursor-listener", {
     click: function() {
         this.el.addEventListener("click", e => {
             const placesContainer = document.querySelector("#posters-container");
-            const { state } = placesContainer.getAttribute("tour");
+            const { state } = placesContainer.getAttribute("posters");
             if (state === "posters-list") {
                 const id = this.el.getAttribute("id");
                 const placesId = ["superman", "spiderman", "avengers", "calvinhobbes"];
                 if (placesId.includes(id)) {
-                    placesContainer.setAttribute("tour", {
+                    placesContainer.setAttribute("posters", {
                         state: "view",
                         selectedCard: id
                     });
