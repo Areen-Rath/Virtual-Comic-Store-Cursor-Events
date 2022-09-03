@@ -10,12 +10,12 @@ AFRAME.registerComponent("cursor-listener", {
         this.leave();
         this.click();
     },
-    handlePlaces: function() {
+    handlePosters: function() {
         const id = this.el.getAttribute("id");
-        const placesId = ["superman", "spiderman", "avengers", "calvinhobbes"];
-        if (placesId.includes(id)) {
-            const placesContainer = document.querySelector("#posters-container");
-            placesContainer.setAttribute("cursor-listener", {
+        const posterssId = ["superman", "spiderman", "avengers", "calvinhobbes"];
+        if (posterssId.includes(id)) {
+            const postersContainer = document.querySelector("#posters-container");
+            postersContainer.setAttribute("cursor-listener", {
                 itemId: id
             });
             this.el.setAttribute("material", {
@@ -26,7 +26,7 @@ AFRAME.registerComponent("cursor-listener", {
     },
     enter: function() {
         this.el.addEventListener("mouseenter", () => {
-            this.handlePlaces();
+            this.handlePosters();
         });
     },
     leave: function() {
@@ -46,13 +46,13 @@ AFRAME.registerComponent("cursor-listener", {
     },
     click: function() {
         this.el.addEventListener("click", e => {
-            const placesContainer = document.querySelector("#posters-container");
-            const { state } = placesContainer.getAttribute("posters");
+            const postersContainer = document.querySelector("#posters-container");
+            const { state } = postersContainer.getAttribute("posters");
             if (state === "posters-list") {
                 const id = this.el.getAttribute("id");
-                const placesId = ["superman", "spiderman", "avengers", "calvinhobbes"];
-                if (placesId.includes(id)) {
-                    placesContainer.setAttribute("posters", {
+                const postersId = ["superman", "spiderman", "avengers", "calvinhobbes"];
+                if (postersId.includes(id)) {
+                    postersContainer.setAttribute("posters", {
                         state: "view",
                         selectedCard: id
                     });
